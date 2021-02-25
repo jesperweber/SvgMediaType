@@ -1,1 +1,1 @@
-# SvgMediaType
+# Svg Media Type
