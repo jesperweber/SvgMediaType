@@ -1,11 +1,11 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 using System.Xml;
-using SvgMediaType.Package.Configuration;
+using SvgMediaType.Configuration;
 using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Web;
 
-namespace SvgMediaType.Package.Helpers
+namespace SvgMediaType.Helpers
 {
     public static class SvgHelper
     {

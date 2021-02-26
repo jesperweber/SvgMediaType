@@ -482,9 +482,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SvgMediaType.Package\SvgMediaType.Package.csproj">
+    <ProjectReference Include="..\SvgMediaType\SvgMediaType.csproj">
       <Project>{39766b86-c527-4528-841b-5d00061966e4}</Project>
-      <Name>SvgMediaType.Package</Name>
+      <Name>SvgMediaType</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

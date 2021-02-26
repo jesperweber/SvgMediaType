@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
 
-namespace SvgMediaType.Package.Configuration
+namespace SvgMediaType.Configuration
 {
     public static class SvgMediaTypeConfig
     {
