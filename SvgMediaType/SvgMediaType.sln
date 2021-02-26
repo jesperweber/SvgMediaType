@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SvgMediaType.Package", "SvgMediaType.Package\SvgMediaType.Package.csproj", "{39766B86-C527-4528-841B-5D00061966E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SvgMediaType", "SvgMediaType\SvgMediaType.csproj", "{C2EA49D5-B763-436A-BE92-2F39C1773FE0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SvgMediaType.UmbracoWebsite", "SvgMediaType.UmbracoWebsite\SvgMediaType.UmbracoWebsite.csproj", "{C2EA49D5-B763-436A-BE92-2F39C1773FE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
