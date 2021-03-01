@@ -1,35 +1,31 @@
-﻿using System.Linq;
-using System.Xml.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using SvgMediaType.Configuration;
 using Umbraco.Core.Logging;
+using Umbraco.Core.Migrations;
 using Umbraco.Core.Models;
-using Umbraco.Core.PackageActions;
-using Umbraco.Core.Services;
 using Umbraco.Web.Composing;
 
-namespace SvgMediaType.PackageActions
+namespace SvgMediaType.Migrator.Migrations
 {
-    internal class SvgMediaTypeAction : IPackageAction
+    public class AddSvgMediaType : MigrationBase
     {
-        public string Alias() => "SvgMediaTypeAction";
-
-        public bool Execute(string packageName, XElement xmlData)
+        public AddSvgMediaType(IMigrationContext context) : base(context)
         {
-            var logger = Current.Logger;
-            var mediaTypeService = Current.Services.MediaTypeService;
-
-            CreateSvgMediaType(logger, mediaTypeService);
-
-            return true;
         }
 
-        private void CreateSvgMediaType(ILogger logger, IMediaTypeService mediaTypeService)
+        public override void Migrate()
         {
+            Logger.Debug<AddSvgMediaType>($"Running migration {nameof(AddSvgMediaType)}");
+
+            var mediaTypeService = Current.Services.MediaTypeService;
+            var dataTypeService = Current.Services.DataTypeService;
+
             var svgMediaType = mediaTypeService.Get(SvgMediaTypeConfig.SvgMediaTypeAlias);
 
             if (svgMediaType != null)
             {
-                logger.Warn(GetType(), $"A media type with the alias '{SvgMediaTypeConfig.SvgMediaTypeAlias}' already exists. Skipping creation.");
+                Logger.Warn(GetType(), $"A media type with the alias '{SvgMediaTypeConfig.SvgMediaTypeAlias}' already exists. Skipping creation.");
             }
             else
             {
@@ -42,7 +38,6 @@ namespace SvgMediaType.PackageActions
 
                 svgMediaType.AddPropertyGroup("SVG");
 
-                var dataTypeService = Current.Services.DataTypeService;
                 var dataTypes = dataTypeService.GetAll().ToArray();
 
                 var fileUploadDataType = dataTypes.FirstOrDefault(x => x.Name == "Upload");
@@ -57,11 +52,6 @@ namespace SvgMediaType.PackageActions
 
                 mediaTypeService.Save(svgMediaType);
             }
-        }
-
-        public bool Undo(string packageName, XElement xmlData)
-        {
-            return true;
         }
     }
 }
