@@ -256,8 +256,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\SvgMediaSavedEventComponent.cs" />
-    <Compile Include="Configuration\Config.cs" />
+    <Compile Include="Configuration\SvgMediaTypeConfig.cs" />
     <Compile Include="Helpers\SvgHelper.cs" />
+    <Compile Include="PackageActions\SvgMediaTypeAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
